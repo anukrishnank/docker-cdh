@@ -41,20 +41,7 @@ hadoop fs -mkdir       /tmp
 hadoop fs -mkdir       /user/hive/warehouse
 hadoop fs -chmod g+w   /tmp
 hadoop fs -chmod g+w   /user/hive/warehouse
-sudo -u hdfs hadoop fs -mkdir /hbase
-sudo -u hdfs hadoop fs -chown hbase /hbase
 
 #CDH5-Installation-Guide Install HBase
 echo "Install Cloudera Components"
-DEBIAN_FRONTEND=noninteractive apt-get -y install hive hbase hbase-thrift hbase-master pig hue oozie oozie-client spark-core spark-master spark-worker spark-history-server spark-python
-
-#Initiate Oozie Database
-oozie-setup db create -run
-
-create_hue_key() {
-  local new_password=$1
-  sed -i "s/secret_key=.*/secret_key=${new_password:0:15}/" /etc/hue/conf/hue.ini
-}
-create_hue_key `uuidgen`
-
-
+DEBIAN_FRONTEND=noninteractive apt-get -y install hive spark-core spark-master spark-worker spark-history-server spark-python

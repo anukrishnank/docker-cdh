@@ -3,24 +3,21 @@
 
 Run the CDH Quick Start image in a docker container.
 
-The latest CDH release is on `master` and pinned versions can be found on
-dedicated branches.
-
 
 ## Install
 
 This image is somewhat large, so you might want to do a separate
 
-    docker pull svds/cdh
+    docker pull anuk87/cdh-spark
 
 to install.
 
 
 ## Use
 
-Spin it up with 
+Spin it up with
 
-    docker run -td svds/cdh
+    docker run -td anuk87/cdh-spark
 
 get the container id from
 
@@ -37,40 +34,29 @@ attach to the container with
 then run any of the usual cdh commands
 
     hadoop fs -ls /
-    impala-shell
-    hbase shell
     spark-submit
-
+    hive
 etc.
 
 
 ## Components
 
 - Apache Hadoop (Common, HDFS, MapReduce, YARN)
-- Apache HBase
-- Apache ZooKeeper
-- Apache Oozie
 - Apache Hive
 - Hue (Apache licensed)
-- Cloudera Impala (Apache licensed)
-- Apache Sentry
-- Apache Sqoop
-- Cloudera Search (Apache licensed)
 - Apache Spark
 
 
 ## Links
 
-Pull the image on Docker Hub: https://registry.hub.docker.com/u/svds/cdh
+Pull the image on Docker Hub:
 
-Github page: https://github.com/silicon-valley-data-science/docker-cdh
+Github page:
 
 [Cloudera Documentation](http://www.cloudera.com/content/cloudera/en/documentation/core/latest/)
 
 
 ## Credits
 
-This image started life as a modified fork of
-[caioquirino/docker-cloudera-quickstart](https://github.com/caioquirino/docker-cloudera-quickstart.git)
-and is now curated by the Silicon Valley Data Science engineering team.
-
+This image is a modified fork of
+[silicon-valley-data-science/docker-cdh](https://github.com/silicon-valley-data-science/docker-cdh)
